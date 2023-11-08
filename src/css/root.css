@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.w-global {
+  @apply m-auto w-96 sm:w-3/4 max-w-sm md:max-w-4xl pt-2 px-6 sm:px-6 lg:px-8;
+}
+
+div {
+}
+
+label {
+  @apply label;
+}
+input {
+  @apply input input-bordered w-full;
+}
+
+Link {
+  @apply block py-2 text-blue-500;
+}
+
+Link .disabled {
+  pointer-events: none;
+  @apply text-gray-500;
+}
+
+nothing_body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.steps .step svg {
+  @apply justify-self-center z-[2] col-start-1 row-start-1 min-h-0 h-0;
+}
+
+.half-rotate {
+  transition: 3.5s ease-in-out;
+  rotate: 0.5turn;
+}
+
+.clip {
+  border-radius: 50px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #40e495,
+    #30dd8a,
+    #2bb673
+  );
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.animate-glint:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.paid {
+  @apply text-green-700 bg-green-50 ring-green-600/20;
+}
+.withdraw {
+  @apply text-gray-600 bg-gray-50 ring-red-500;
+}
+.overdue {
+  @apply text-red-700 bg-red-50 ring-red-600/10;
+}
+
+.bapdge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 200ms;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 0.563rem;
+  padding-right: 0.563rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b2) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--bc) / var(--tw-text-opacity));
+  border-radius: var(--rounded-badge, 1.9rem);
+}
+
+.level-10 {
+  @apply bg-blue-100;
+}
+
+.level-20 {
+  @apply bg-green-100;
+}
+
+.level-30 {
+  @apply bg-blue-100;
+}
+
+.level-40 {
+  @apply bg-yellow-300;
+}
+
+.level-50 {
+  @apply bg-red-200;
+}
+
+.level-60 {
+  @apply bg-purple-200;
+}
+
+.level {
+  @apply badge-xs	 text-center h-auto p-2 text-xs;
+}

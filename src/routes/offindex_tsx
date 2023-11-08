@@ -1,0 +1,465 @@
+import { For, createEffect, createMemo, createSignal, untrack } from "solid-js";
+import { useNavigate, useSearchParams } from "solid-start";
+import ClassesTable from "~/components/ClassesTable";
+import { categories } from "~/constants";
+import { tCategory, tSubs } from "~/i18n/dict";
+import { Course } from "~/types";
+import { makeData } from "~/utils/makeData";
+import { tapClasses, teachers } from "~/utils/someData";
+
+import { ComboBox } from "~/components/ComboBox3";
+import { Icon } from "solid-heroicons";
+import { xCircle } from "solid-heroicons/solid";
+
+type CourseCategories = {
+  [category: string]: Course[];
+};
+
+const myCourse = {
+  id: "1",
+  title: "title",
+  category: "category",
+  subCategory: "subCategory",
+  startTime: "startTime",
+  weekDays: ["weekDays"],
+  duration: 1,
+  level: "level",
+  teacher: "teacher",
+  icon: <div>icon</div>,
+};
+
+type CourseCategoryState = {
+  [category: string]: Course[];
+};
+
+type WithSubCategory = {
+  [category: string | number]: {
+    [subCategory: string | number]: Course[];
+  };
+};
+
+export default function Home() {
+  const [query, setQuery] = createSignal<string>();
+  const [searchParams, setSearchParams] = useSearchParams();
+  // const [selectedCategories, setSelectedCategories] = createSignal<string[]>(
+  //   []
+  // );
+  const [selectedCategory, setSelectedCategory] = createSignal<string>();
+  const [selectedTeacher, setSelectedTeacher] = createSignal<string>();
+  const [selectedTimeRange, setSelectedTimeRange] = createSignal("");
+
+  // categories[0]
+
+  const [selectionStore, setSelectionStore] = createSignal<
+    Record<string, string>
+  >({});
+
+  const selected = searchParams.c?.split("|");
+
+  // const [data, setData] = createSignal<Course[]>([]);
+
+  // const [dataByCategory, setDataByCategory] = createSignal<WithSubCategory>({});
+
+  // onMount(() => {
+  //   const initialData: Course[] = [...makeData(30), ...tapClasses];
+  //   setData(initialData);
+  //   console.log("ON MOUNT", data().length);
+  // });
+
+  // const wSubs: Accessor<WithSubCategory> = createMemo(() => {
+  // console.log("createMemo", data().length);
+  // onMount(() => {
+  const initialData: Course[] = untrack(() => [...makeData(30), ...tapClasses]);
+  // const wSubs: WithSubCategory = untrack(() =>
+  //   initialData.reduce((acc, row) => {
+  //     row.selected = selected?.includes(row.id) || false;
+
+  //     const category = row["category"] as string | number;
+  //     const subCategory =
+  //       !row["subCategory"] || row["subCategory"] == ""
+  //         ? "default"
+  //         : (row["subCategory"] as string | number);
+
+  //     if (!acc[category]) {
+  //       acc[category] = {};
+  //     }
+
+  //     if (!acc[category][subCategory]) {
+  //       acc[category][subCategory] = [];
+  //     }
+
+  //     acc[category][subCategory].push(row);
+  //     return acc;
+  //   }, {} as WithSubCategory)
+  // );
+
+  const [filteredData, setFilteredData] = createSignal<WithSubCategory>({});
+  const [filteredCategories, setFilteredCategories] = createSignal<string[][]>(
+    []
+  );
+
+  createEffect(() => {
+    const cat = selectedCategory();
+    const teacher = selectedTeacher();
+
+    const data = untrack(() =>
+      initialData.reduce((acc, row) => {
+        // Filter by selectedCategory if it's set
+        if (cat && row.category !== cat) {
+          return acc;
+        }
+
+        // // // Filter by selectedTeacher if it's set
+        if (teacher && !row.teacher.includes(teacher)) {
+          return acc;
+        }
+        if (teacher) {
+          console.log(".... teacher filter row", row.title, row.teacher);
+        }
+        row.selected = selected?.includes(row.id) || false;
+
+        const category = row["category"] as string | number;
+        const subCategory =
+          !row["subCategory"] || row["subCategory"] == ""
+            ? "default"
+            : (row["subCategory"] as string | number);
+
+        if (!acc[category]) {
+          acc[category] = {};
+        }
+
+        if (!acc[category][subCategory]) {
+          acc[category][subCategory] = [];
+        }
+
+        acc[category][subCategory].push(row);
+        return acc;
+      }, {} as WithSubCategory)
+    );
+    // console.log("resolve", data);
+    // if (subCategories())
+    // console.log("resolve", JSON.stringify(subCategories()));
+
+    setFilteredData(data);
+  });
+
+  createEffect(() => {
+    const uniqueCategories = new Set<string>();
+    const uniqueSubCategories = new Set<string>();
+
+    const filtered = filteredData();
+
+    for (const categoryKey in filtered) {
+      const category = categoryKey as string;
+      uniqueCategories.add(category);
+
+      const subCategoriesObj = filtered[category];
+
+      for (const subCategoryKey in subCategoriesObj) {
+        const subCategory = subCategoryKey as string;
+        uniqueSubCategories.add(subCategory);
+      }
+    }
+
+    // Convert uniqueCategories and uniqueSubCategories to an array of arrays
+    const categoriesArray = Array.from(uniqueCategories).map((category) => [
+      category,
+      ...Array.from(uniqueSubCategories),
+    ]);
+
+    setFilteredCategories(categoriesArray);
+  });
+
+  // const filteredDataOff = createMemo(() => {
+  //   const cat = selectedCategory();
+  //   const teacher = selectedTeacher();
+
+  //   const resolve = untrack(() =>
+  //     initialData.reduce((acc, row) => {
+  //       // Filter by selectedCategory if it's set
+  //       if (cat && row.category !== cat) {
+  //         return acc;
+  //       }
+
+  //       // // // Filter by selectedTeacher if it's set
+  //       if (teacher && !row.teacher.includes(teacher)) {
+  //         return acc;
+  //       }
+  //       if (teacher) {
+  //         console.log(".... teacher filter row", row.title, row.teacher);
+  //       }
+  //       row.selected = selected?.includes(row.id) || false;
+
+  //       const category = row["category"] as string | number;
+  //       const subCategory =
+  //         !row["subCategory"] || row["subCategory"] == ""
+  //           ? "default"
+  //           : (row["subCategory"] as string | number);
+
+  //       if (!acc[category]) {
+  //         acc[category] = {};
+  //       }
+
+  //       if (!acc[category][subCategory]) {
+  //         acc[category][subCategory] = [];
+  //       }
+
+  //       acc[category][subCategory].push(row);
+  //       return acc;
+  //     }, {} as WithSubCategory)
+  //   );
+  //   console.log("resolve", resolve);
+  //   // if (subCategories())
+  //   // console.log("resolve", JSON.stringify(subCategories()));
+  //   return resolve;
+  // });
+
+  // const filteredCategoriesOff = createMemo(() => {
+  //   // return Object.keys(filteredData());
+
+  //   const uniqueSubCategories = new Set<string>();
+  //   const filtered = filteredData();
+
+  //   for (const categoryKey in filtered) {
+  //     const category = categoryKey as string | number;
+  //     const subCategoriesObj = filtered[category];
+
+  //     for (const subCategory in subCategoriesObj) {
+  //       uniqueSubCategories.add(subCategory);
+  //     }
+  //   }
+
+  //   console.log("subcategories", JSON.stringify(uniqueSubCategories));
+  //   return Array.from(uniqueSubCategories);
+  // });
+
+  // setDataByCategory(wSubs);
+  // console.log("wSubs", wSubs);
+  // console.log("dataByCategoryStore", dataByCategoryStore());
+  // return wSubs;
+  // Object.keys(dataByCategory).forEach((category) => {
+  //   setDataByCategoryStore(category, dataByCategory[category]);
+  // });
+
+  // setDataByCategoryStore(dataByCategory);
+
+  // createEffect(() =>
+  //   setDataByCategory(
+  //     data().reduce((acc: CourseCategories, row) => {
+  //       const category = row.category;
+  //       if (!acc[category]) {
+  //         acc[category] = [];
+  //       }
+  //       acc[category].push(row);
+  //       return acc;
+  //     }, {})
+  //   )
+  // );
+
+  // createEffect(() => {
+  //   const dataByCategory = data().reduce((acc: CourseCategories, row) => {
+  //     const category = row.category;
+  //     if (!acc[category]) {
+  //       acc[category] = [];
+  //     }
+  //     acc[category].push(row);
+  //     return acc;
+  //   }, {});
+
+  //   const categorySignals = Object.entries(dataByCategory).reduce(
+  //     (acc, [category, courses]) => {
+  //       const [signal, setSignal] = createSignal(courses);
+  //       acc[category] = signal;
+  //       acc[`${category}Setter`] = setSignal;
+  //       return acc;
+  //     },
+  //     {}
+  //   );
+
+  //   setDataByCategory(dataByCategory);
+  //   setCategorySignals(categorySignals);
+  // });
+  const navigate = useNavigate();
+
+  createEffect(() => {
+    const QueryValue = Object.values(selectionStore()).filter((v) => !!v);
+    // .join("|");
+    setQuery(QueryValue.join("|"));
+    console.log("QueryValue", QueryValue);
+    // setSearchParams({ c: QueryValue });
+
+    const params = new URLSearchParams();
+    // if (QueryValue) {
+    params.append("xx", QueryValue.join("|"));
+    // } else {
+    // params.delete("xx");
+    console.log("navigate", params);
+    // }
+    // history.push({ search: params.toString() });
+    navigate("/?query=" + QueryValue.join("|"), { resolve: false });
+  });
+
+  // const subCategories = createMemo(() => {
+  //   const selected = selectedCategory() || "";
+  //   const subSelected = !wSubs[selected] ? [] : Object.keys(wSubs[selected]);
+
+  //   return !selectedTeacher()
+  //     ? subSelected
+  //     : initialData
+  //         .filter((c) => !c.subCategory || subSelected.includes(c.subCategory))
+  //         // .filter((cl) => {
+  //         //   return (
+  //         //     !selectedTeacher() || cl.teacher.includes(selectedTeacher() || "")
+  //         //   );
+  //         // })
+  //         .map((c) => c.subCategory);
+  // });
+
+  const subCategories = createMemo(() => {
+    const selected = selectedCategory() || "";
+    const subSelected = !filteredData()[selected]
+      ? []
+      : Object.keys(filteredData()[selected]);
+    console.log("subSelected...", subSelected);
+    // const result = !selectedTeacher()
+    //   ? subSelected
+    //   : initialData
+    //       .filter((c) => !c.subCategory || subSelected.includes(c.subCategory))
+    //       // .filter((cl) => {
+    //       //   return (
+    //       //     !selectedTeacher() || cl.teacher.includes(selectedTeacher() || "")
+    //       //   );
+    //       // })
+    //       .map((c) => c.subCategory);
+    // console.log("memo, ", selected, result);
+    return subSelected;
+  });
+
+  const teacherset = [...new Set(tapClasses.flatMap((t) => t.teacher))].sort();
+  Set;
+  console.log(
+    "teachers",
+    // tapClasses.map((t) => t.teacher),
+    JSON.stringify(teacherset)
+  );
+
+  return (
+    <main
+      class="mx-auto flex max-w-7xl items-center justify-between md:p-6 lg:px-8"
+      aria-label="Global"
+
+      // class="text-center mx-auto text-gray-700 p-4"
+    >
+      {/* <pre>query{JSON.stringify(query())}</pre>
+
+      <pre>store:{JSON.stringify(selectionStore())}</pre>
+      <pre>sp{JSON.stringify(searchParams)}</pre> */}
+
+      <div class="prose mx-auto ">
+        <div class="flex flex-col gap-2">
+          <ComboBox
+            options={categories.map((o) => ({
+              label: tCategory(o),
+              value: o,
+            }))}
+            selected={selectedCategory}
+            setSelected={setSelectedCategory}
+            placeholder="Select a category"
+          />
+
+          <ComboBox
+            options={Object.keys(teachers).map((teacherKey) => ({
+              label: (teachers as any)[teacherKey] || teacherKey,
+              value: teacherKey,
+            }))}
+            selected={selectedTeacher}
+            setSelected={setSelectedTeacher}
+            placeholder="Filter by teacher"
+          />
+        </div>
+
+        {subCategories() && (
+          // !!selectedCategory() || !!selectedTeacher()) &&
+
+          <div>
+            selected....{[selectedCategory(), selectedTeacher()].join(",")}
+            <For
+              each={
+                filteredCategories()
+                // selectedCategory() || selectedTeacher()
+                // ? Object.keys(filteredData())
+                // : []
+                // selectedCategory()
+                //   ? [selectedCategory()]
+                //   : selectedTeacher()
+                //   ? Object.keys(filteredData())
+                //   : []
+              }
+            >
+              {(category) => (
+                <>
+                  {/* {selectedCategory() === category && ( */}
+                  <h2 id={category[0]} class="px-2">
+                    {tCategory(category[0])}
+                  </h2>
+                  {/* )} */}
+                  <For each={category.slice(1)}>
+                    {(subCategory) => {
+                      console.log(
+                        "filtered",
+                        filteredData(),
+                        category,
+                        subCategory
+                      );
+                      return (
+                        filteredData()[category[0]][subCategory]?.length >
+                          0 && (
+                          <div>
+                            {subCategory != "default" && (
+                              <h3 class="px-4 text-slate-400">
+                                {tSubs(subCategory)}
+                              </h3>
+                            )}
+                            <ClassesTable
+                              category={category[0] || ""}
+                              subCategory={subCategory}
+                              data={() =>
+                                filteredData()[category[0] || ""][subCategory]
+                              }
+                              setSelectionStore={setSelectionStore}
+                              selectionStore={selectionStore}
+                            />
+
+                            {/* <ClassesTable
+                              category={selectedCategory() || ""}
+                              subCategory={subCategory}
+                              data={() =>
+                                filteredData()[selectedCategory() || ""][
+                                  subCategory
+                                ]
+                              }
+                              setSelectionStore={setSelectionStore}
+                              selectionStore={selectionStore}
+                            /> */}
+                          </div>
+                        )
+                      );
+                    }}
+                  </For>
+                </>
+              )}
+            </For>
+          </div>
+        )}
+      </div>
+      <span class="h-20">.</span>
+    </main>
+  );
+}
+
+{
+  /* <CategoryClasses
+                category={category}
+                data={() => dataByCategoryStore[category]}
+              /> */
+}

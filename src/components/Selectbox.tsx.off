@@ -1,0 +1,145 @@
+import clsx from "clsx";
+import { createSignal, createMemo, ParentProps, JSX, For } from "solid-js";
+import { Combobox } from "@kobalte/core";
+import { Icon } from "solid-heroicons";
+import { check, xCircle, xMark, barsArrowDown } from "solid-heroicons/solid";
+// import { tCategory } from "~/i18n/dict";
+
+function tCategory(category: string) {
+  return category;
+}
+
+interface Option {
+  label: string;
+  value: string;
+}
+
+// interface Props extends ParentProps<JSX.SelectHTMLAttributes<"select">> {
+interface Props extends ParentProps<JSX.IntrinsicElements["select"]> {
+  // options: Option[];
+  options: string[];
+  // class: string;
+  selectedClass?: string;
+}
+
+function CheckIcon(props: JSX.IntrinsicElements["svg"]): JSX.Element {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width={2}
+        d="M5 13l4 4L19 7"
+      />
+    </svg>
+  );
+}
+
+function SelectorIcon(props: JSX.IntrinsicElements["svg"]): JSX.Element {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+      />
+    </svg>
+  );
+}
+
+export default function SelectBox({
+  options,
+  class: className,
+  selectedClass,
+  ...props
+}: Props) {
+  const [values, setValues] = createSignal([]);
+  // <select
+  //   multiple={true}
+  //   // class={class}
+  //   {...props}
+  //   value={selectedOptions()}
+  //   onChange={(e) =>
+  //     setSelectedOptions(
+  //       Array.from(e.target.selectedOptions, (option) => option.value)
+  //     )
+  //   }
+  // >
+  // {/* // <option class={selectedClass} value={option.value}> */}
+  return (
+    <>
+      <Combobox.Root<string>
+        multiple
+        // options={options.map((o) => o.value)}
+        options={options}
+        value={values()}
+        onChange={setValues}
+        placeholder="Categories…"
+        itemComponent={(props) => (
+          <Combobox.Item item={props.item}>
+            <Combobox.ItemLabel>{props.item.rawValue}</Combobox.ItemLabel>
+            <Combobox.ItemIndicator>
+              <CheckIcon />
+            </Combobox.ItemIndicator>
+          </Combobox.Item>
+        )}
+      >
+        <Combobox.Control<string> aria-label="Fruits">
+          {(state) => (
+            <>
+              <div>
+                <For each={state.selectedOptions()}>
+                  {(option) => (
+                    <span onPointerDown={(e) => e.stopPropagation()}>
+                      {tCategory(option)}
+                      <button onClick={() => state.remove(option)}>
+                        <Icon class="w-4 h-4" path={xCircle} />
+                      </button>
+                    </span>
+                  )}
+                </For>
+                <Combobox.Input />
+              </div>
+              <button
+                onPointerDown={(e) => e.stopPropagation()}
+                onClick={state.clear}
+              >
+                <Icon class="w-4 h-4" path={xCircle} />
+              </button>
+              <Combobox.Trigger>
+                <Combobox.Icon>
+                  <Icon class="w-4 h-4" path={barsArrowDown} />
+                </Combobox.Icon>
+              </Combobox.Trigger>
+            </>
+          )}
+        </Combobox.Control>
+        <Combobox.Portal>
+          <Combobox.Content>
+            <Combobox.Listbox />
+          </Combobox.Content>
+        </Combobox.Portal>
+      </Combobox.Root>
+      <p>
+        Your categories are:{" "}
+        {values()
+          .map((v) => tCategory)
+          .join(", ")}
+        .
+      </p>
+    </>
+  );
+}

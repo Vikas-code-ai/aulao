@@ -1,0 +1,32 @@
+export const Levels = {
+  10: {
+    en: "Beginner",
+    es: "Principiante",
+    cat: "Principiant",
+  },
+  20: {
+    en: "Advanced Beginner",
+    es: "Principiantes Avanzados",
+    cat: "Principiants avançats",
+  },
+  25: {
+    en: "Elementary",
+    es: "Elemental",
+    cat: "Elemental",
+  },
+  30: {
+    en: "Intermediate",
+    es: "Medio",
+    cat: "Intermedi",
+  },
+  40: {
+    en: "Intermediate/ Advanced",
+    es: "Medio/ Avanzado",
+    cat: "Mig/avançat",
+  },
+  50: {
+    en: "Advanced",
+    es: "Avanzad",
+    cat: "Avançat",
+  },
+};

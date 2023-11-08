@@ -1,0 +1,18 @@
+{
+  "tasks": {
+    "dev": "deno run -A --node-modules-dir npm:vite",
+    "build": "deno run -A --node-modules-dir npm:vite build",
+    "preview": "deno run -A --node-modules-dir npm:vite preview",
+    "serve": "deno run --allow-net --allow-read https://deno.land/std@0.157.0/http/file_server.ts dist/"
+  },
+
+  "imports": {
+    "vite-plugin-deno": "https://deno.land/x/vite_plugin_deno/mod.ts",
+    "deno": "https://deno.land/x/deno/mod.ts",
+    "solid-js": "https://cdn.skypack.dev/solid-js?dts",
+    "solid-start": "https://cdn.skypack.dev/solid-start?dts",
+    "solid-start/entry-client": "https://cdn.skypack.dev/solid-start/entry-client?dts",
+    "solid-start/entry-server": "https://cdn.skypack.dev/solid-start/entry-server?dts",
+    "solid-start/entry-ssr": "https://cdn.skypack.dev/solid-start/entry-ssr?dts"
+  }
+}
