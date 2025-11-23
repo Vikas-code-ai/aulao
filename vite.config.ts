@@ -1,37 +1,15 @@
-import netlify from "solid-start-netlify";
-
-import solid from "solid-start/vite";
-import { defineConfig } from "vite";
-import statics from "solid-start-static";
-// import solidPlugin from "vite-plugin-solid";
-
-// export default defineConfig({
-//   plugins: [solid()],
-// });
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
-  // plugins: [
-  //   solid({
-  //     adapter: netlify({ edge: true }),
-  //   }),
-  // ],
-
-  plugins: [solid({ adapter: "solid-start-static" })],
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
   server: {
     port: 3034,
   },
-  // build: {
-  //   target: 'esnext',
-  // },
-});
-
-// import { defineConfig } from "vite";
-// import deno from "npm:vite-plugin-deno";
-// import solidPlugin from "npm:vite-plugin-solid";
-
-// export default defineConfig({
-//   plugins: [deno({ version: "1.14.0" }), solidPlugin()],
-//   server: {
-//     port: 3034,
-//   },
-// });
+})
