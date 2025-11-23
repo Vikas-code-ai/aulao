@@ -59,15 +59,13 @@ The application adapts to the new Directus database schema:
 
 ### Prerequisites
 
-- Node.js 18 or higher
+- **Bun** 1.0 or higher (recommended) or Node.js 18+
 - Access to Directus CMS instance
 
 ### Installation
 
 1. Install dependencies:
 ```bash
-npm install
-# or
 bun install
 ```
 
@@ -83,7 +81,7 @@ VITE_DIRECTUS_URL=https://your-directus-instance.com
 
 3. Start the development server:
 ```bash
-npm run dev
+bun run dev
 ```
 
 The app will be available at `http://localhost:3034`
@@ -91,10 +89,22 @@ The app will be available at `http://localhost:3034`
 ### Build for Production
 
 ```bash
-npm run build
+bun run build
 ```
 
 The built files will be in the `dist/` directory.
+
+### Type Checking
+
+```bash
+bun run type-check
+```
+
+### Preview Production Build
+
+```bash
+bun run preview
+```
 
 ## 📁 Project Structure
 
@@ -234,18 +244,6 @@ This is a **complete rebuild** from the old SolidJS-based viewer. Key changes:
 - ✅ Auto-generated class titles
 - ✅ Better type safety
 - ✅ Modern component architecture
-
-## 🚧 Development
-
-### Type Checking
-```bash
-npm run type-check
-```
-
-### Preview Production Build
-```bash
-npm run preview
-```
 
 ## 📝 License
 
