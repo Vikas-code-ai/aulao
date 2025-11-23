@@ -5,15 +5,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 660,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 60,
     "level": 10,
-    "teacher": [
-      "rof"
-    ]
+    "teacher": ["rof"]
   },
   {
     "id": "2",
@@ -21,15 +16,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1110,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 60,
     "level": 10,
-    "teacher": [
-      "lam"
-    ]
+    "teacher": ["lam"]
   },
   {
     "id": "3",
@@ -37,14 +27,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1260,
-    "weekDays": [
-      4
-    ],
+    "weekDays": [4],
     "duration": 75,
     "level": 10,
-    "teacher": [
-      "fru"
-    ]
+    "teacher": ["fru"]
   },
   {
     "id": "4",
@@ -52,14 +38,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 570,
-    "weekDays": [
-      5
-    ],
+    "weekDays": [5],
     "duration": 90,
     "level": 10,
-    "teacher": [
-      "rof"
-    ]
+    "teacher": ["rof"]
   },
   {
     "id": "5",
@@ -67,14 +49,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 885,
-    "weekDays": [
-      5
-    ],
+    "weekDays": [5],
     "duration": 90,
     "level": 10,
-    "teacher": [
-      "rof"
-    ]
+    "teacher": ["rof"]
   },
   {
     "id": "6",
@@ -82,14 +60,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 600,
-    "weekDays": [
-      6
-    ],
+    "weekDays": [6],
     "duration": 60,
     "level": 10,
-    "teacher": [
-      "mn"
-    ]
+    "teacher": ["mn"]
   },
   {
     "id": "7",
@@ -97,14 +71,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 960,
-    "weekDays": [
-      1
-    ],
+    "weekDays": [1],
     "duration": 90,
     "level": 20,
-    "teacher": [
-      "il"
-    ]
+    "teacher": ["il"]
   },
   {
     "id": "8",
@@ -112,14 +82,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 960,
-    "weekDays": [
-      3
-    ],
+    "weekDays": [3],
     "duration": 90,
     "level": 20,
-    "teacher": [
-      "il"
-    ]
+    "teacher": ["il"]
   },
   {
     "id": "9",
@@ -127,14 +93,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1260,
-    "weekDays": [
-      1
-    ],
+    "weekDays": [1],
     "duration": 75,
     "level": 20,
-    "teacher": [
-      "dc"
-    ]
+    "teacher": ["dc"]
   },
   {
     "id": "10",
@@ -142,15 +104,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 570,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 20,
-    "teacher": [
-      "rof"
-    ]
+    "teacher": ["rof"]
   },
   {
     "id": "11",
@@ -158,14 +115,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1215,
-    "weekDays": [
-      3
-    ],
+    "weekDays": [3],
     "duration": 75,
     "level": 20,
-    "teacher": [
-      "mb"
-    ]
+    "teacher": ["mb"]
   },
   {
     "id": "12",
@@ -173,14 +126,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 9,
-    "weekDays": [
-      5
-    ],
+    "weekDays": [5],
     "duration": 90,
     "level": 20,
-    "teacher": [
-      "ap"
-    ]
+    "teacher": ["ap"]
   },
   {
     "id": "13",
@@ -188,14 +137,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 870,
-    "weekDays": [
-      5
-    ],
+    "weekDays": [5],
     "duration": 90,
     "level": 20,
-    "teacher": [
-      "il"
-    ]
+    "teacher": ["il"]
   },
   {
     "id": "14",
@@ -203,14 +148,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 660,
-    "weekDays": [
-      6
-    ],
+    "weekDays": [6],
     "duration": 90,
     "level": 20,
-    "teacher": [
-      "mn"
-    ]
+    "teacher": ["mn"]
   },
   {
     "id": "15",
@@ -218,15 +159,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 570,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 75,
     "level": 30,
-    "teacher": [
-      "fru"
-    ]
+    "teacher": ["fru"]
   },
   {
     "id": "16",
@@ -235,17 +171,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 960,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 90,
     "level": 30,
-    "teacher": [
-      "fru",
-      "fru",
-      "mb"
-    ]
+    "teacher": ["fru", "fru", "mb"]
   },
   {
     "id": "17",
@@ -253,15 +182,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1140,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 75,
     "level": 30,
-    "teacher": [
-      "mb"
-    ]
+    "teacher": ["mb"]
   },
   {
     "id": "18",
@@ -269,17 +193,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 885,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 30,
-    "teacher": [
-      "dg",
-      "rof",
-      "rof"
-    ]
+    "teacher": ["dg", "rof", "rof"]
   },
   {
     "id": "19",
@@ -288,17 +205,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 960,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 90,
     "level": 30,
-    "teacher": [
-      "ep",
-      "ga",
-      "ga"
-    ]
+    "teacher": ["ep", "ga", "ga"]
   },
   {
     "id": "20",
@@ -306,15 +216,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1245,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 30,
-    "teacher": [
-      "mn"
-    ]
+    "teacher": ["mn"]
   },
   {
     "id": "21",
@@ -322,14 +227,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 555,
-    "weekDays": [
-      3
-    ],
+    "weekDays": [3],
     "duration": 90,
     "level": 30,
-    "teacher": [
-      "mb"
-    ]
+    "teacher": ["mb"]
   },
   {
     "id": "22",
@@ -337,14 +238,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 960,
-    "weekDays": [
-      3
-    ],
+    "weekDays": [3],
     "duration": 90,
     "level": 30,
-    "teacher": [
-      "il"
-    ]
+    "teacher": ["il"]
   },
   {
     "id": "23",
@@ -353,17 +250,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 570,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 75,
     "level": 40,
-    "teacher": [
-      "rof",
-      "rof",
-      "ep"
-    ]
+    "teacher": ["rof", "rof", "ep"]
   },
   {
     "id": "24",
@@ -371,15 +261,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 645,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 75,
     "level": 40,
-    "teacher": [
-      "lam"
-    ]
+    "teacher": ["lam"]
   },
   {
     "id": "25",
@@ -387,15 +272,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1020,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 90,
     "level": 40,
-    "teacher": [
-      "lam"
-    ]
+    "teacher": ["lam"]
   },
   {
     "id": "26",
@@ -403,15 +283,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1170,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 90,
     "level": 40,
-    "teacher": [
-      "sl"
-    ]
+    "teacher": "sl"
   },
   {
     "id": "27",
@@ -420,17 +295,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 570,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 40,
-    "teacher": [
-      "rs",
-      "mb",
-      "fru"
-    ]
+    "teacher": ["rs", "mb", "fru"]
   },
   {
     "id": "28",
@@ -439,17 +307,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 645,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 40,
-    "teacher": [
-      "dg",
-      "ga",
-      "ga"
-    ]
+    "teacher": ["dg", "ga", "ga"]
   },
   {
     "id": "29",
@@ -458,14 +319,102 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1230,
-    "weekDays": [
-      2
-    ],
+    "weekDays": [2],
     "duration": 90,
     "level": 40,
-    "teacher": [
-      "ep"
-    ]
+    "teacher": ["ep"]
+  },
+  {
+    "id": "22",
+    "title": "CLAQUÉ Mig",
+    "category": "tap",
+    "subCategory": "",
+    "startTime": 960,
+    "weekDays": [3],
+    "duration": 90,
+    "level": 30,
+    "teacher": ["il"]
+  },
+  {
+    "id": "23",
+    "isTapProgram": true,
+    "title": "CLAQUÉ Mig/avançat",
+    "category": "tap",
+    "subCategory": "",
+    "startTime": 570,
+    "weekDays": [1, 3],
+    "duration": 75,
+    "level": 40,
+    "teacher": ["rof", "rof", "ep"]
+  },
+  {
+    "id": "24",
+    "title": "CLAQUÉ Mig/avançat",
+    "category": "tap",
+    "subCategory": "",
+    "startTime": 645,
+    "weekDays": [1, 3],
+    "duration": 75,
+    "level": 40,
+    "teacher": ["lam"]
+  },
+  {
+    "id": "25",
+    "title": "CLAQUÉ Mig/avançat",
+    "category": "tap",
+    "subCategory": "",
+    "startTime": 1020,
+    "weekDays": [1, 3],
+    "duration": 90,
+    "level": 40,
+    "teacher": ["lam"]
+  },
+  {
+    "id": "26",
+    "title": "CLAQUÉ Mig/avançat",
+    "category": "tap",
+    "subCategory": "",
+    "startTime": 1170,
+    "weekDays": [1, 3],
+    "duration": 90,
+    "level": 40,
+    "teacher": "sl"
+  },
+  {
+    "id": "27",
+    "isTapProgram": true,
+    "title": "CLAQUÉ Mig/avançat",
+    "category": "tap",
+    "subCategory": "",
+    "startTime": 570,
+    "weekDays": [2, 4],
+    "duration": 75,
+    "level": 40,
+    "teacher": ["rs", "mb", "fru"]
+  },
+  {
+    "id": "28",
+    "isTapProgram": true,
+    "title": "CLAQUÉ Mig/avançat",
+    "category": "tap",
+    "subCategory": "",
+    "startTime": 645,
+    "weekDays": [2, 4],
+    "duration": 75,
+    "level": 40,
+    "teacher": ["dg", "ga", "ga"]
+  },
+  {
+    "id": "29",
+    "startsAt": null,
+    "title": "CLAQUÉ Mig/avançat",
+    "category": "tap",
+    "subCategory": "",
+    "startTime": 1230,
+    "weekDays": [2],
+    "duration": 90,
+    "level": 40,
+    "teacher": ["ep"]
   },
   {
     "id": "30",
@@ -473,17 +422,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 570,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 75,
     "level": 40,
-    "teacher": [
-      "rof",
-      "rof",
-      "ep"
-    ]
+    "teacher": ["rof", "rof", "ep"]
   },
   {
     "id": "31",
@@ -491,15 +433,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 645,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 75,
     "level": 40,
-    "teacher": [
-      "lam"
-    ]
+    "teacher": ["lam"]
   },
   {
     "id": "32",
@@ -507,15 +444,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1020,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 90,
     "level": 40,
-    "teacher": [
-      "lam"
-    ]
+    "teacher": ["lam"]
   },
   {
     "id": "33",
@@ -523,15 +455,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1170,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 90,
     "level": 40,
-    "teacher": [
-      "sl"
-    ]
+    "teacher": "sl"
   },
   {
     "id": "34",
@@ -539,17 +466,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 570,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 40,
-    "teacher": [
-      "rs",
-      "mb",
-      "fru"
-    ]
+    "teacher": ["rs", "mb", "fru"]
   },
   {
     "id": "35",
@@ -557,17 +477,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 645,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 40,
-    "teacher": [
-      "dg",
-      "ga",
-      "ga"
-    ]
+    "teacher": ["dg", "ga", "ga"]
   },
   {
     "id": "36",
@@ -575,14 +488,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1230,
-    "weekDays": [
-      2
-    ],
+    "weekDays": [2],
     "duration": 90,
     "level": 40,
-    "teacher": [
-      "ep"
-    ]
+    "teacher": ["ep"]
   },
   {
     "id": "37",
@@ -590,14 +499,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 930,
-    "weekDays": [
-      5
-    ],
+    "weekDays": [5],
     "duration": 120,
     "level": 40,
-    "teacher": [
-      "ep"
-    ]
+    "teacher": ["ep"]
   },
   {
     "id": "38",
@@ -605,14 +510,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 765,
-    "weekDays": [
-      6
-    ],
+    "weekDays": [6],
     "duration": 90,
     "level": 40,
-    "teacher": [
-      "mn"
-    ]
+    "teacher": ["mn"]
   },
   {
     "id": "39",
@@ -620,33 +521,21 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 720,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 75,
     "level": 50,
-    "teacher": [
-      "mb",
-      "lam",
-      "lam"
-    ]
+    "teacher": ["mb", "lam", "lam"]
   },
   {
     "id": "40",
     "title": "CLAQUÉ Avançat",
     "category": "tap",
     "subCategory": "",
-    "startTime": 795,
-    "weekDays": [
-      1,
-      3
-    ],
+    "startTime": 1633346100000,
+    "weekDays": [1, 3],
     "duration": 75,
     "level": 50,
-    "teacher": [
-      "ga"
-    ]
+    "teacher": ["ga"]
   },
   {
     "id": "41",
@@ -654,14 +543,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 900,
-    "weekDays": [
-      1
-    ],
+    "weekDays": [1],
     "duration": 120,
     "level": 50,
-    "teacher": [
-      "ep"
-    ]
+    "teacher": ["ep"]
   },
   {
     "id": "42",
@@ -669,15 +554,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 1080,
-    "weekDays": [
-      1,
-      3
-    ],
+    "weekDays": [1, 3],
     "duration": 90,
     "level": 50,
-    "teacher": [
-      "sl"
-    ]
+    "teacher": "sl"
   },
   {
     "id": "43",
@@ -685,17 +565,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 720,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 50,
-    "teacher": [
-      "dg",
-      "rof",
-      "rof"
-    ]
+    "teacher": ["dg", "rof", "rof"]
   },
   {
     "id": "44",
@@ -703,17 +576,10 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 795,
-    "weekDays": [
-      2,
-      4
-    ],
+    "weekDays": [2, 4],
     "duration": 75,
     "level": 50,
-    "teacher": [
-      "ep",
-      "ep",
-      "fru"
-    ]
+    "teacher": ["ep", "ep", "fru"]
   },
   {
     "id": "45",
@@ -721,30 +587,20 @@
     "category": "tap",
     "subCategory": "",
     "startTime": 900,
-    "weekDays": [
-      3
-    ],
+    "weekDays": [3],
     "duration": 120,
     "level": 50,
-    "teacher": [
-      "dg",
-      "ep",
-      "ep"
-    ]
+    "teacher": ["dg", "ep", "ep"]
   },
   {
     "id": "46",
     "title": "CLAQUÉ Avançat",
     "category": "tap",
-    "startTime": 1230,
-    "weekDays": [
-      3
-    ],
+    "startTime": 2030,
+    "weekDays": [3],
     "duration": 90,
     "level": 50,
-    "teacher": [
-      "cm"
-    ]
+    "teacher": ["cm"]
   },
   {
     "id": "47",
@@ -752,14 +608,10 @@
     "category": "tap",
     "subCategory": "tapImprov",
     "startTime": 1140,
-    "weekDays": [
-      3
-    ],
+    "weekDays": [3],
     "duration": 90,
     "startsAt": "2023-09-30T22:00:00.000Z",
-    "teacher": [
-      "cm"
-    ]
+    "teacher": ["cm"]
   },
   {
     "id": "48",
@@ -767,13 +619,9 @@
     "category": "tap",
     "subCategory": "tapCajon",
     "startTime": 960,
-    "weekDays": [
-      5
-    ],
+    "weekDays": [5],
     "duration": 90,
-    "teacher": [
-      "te"
-    ]
+    "teacher": ["te"]
   },
   {
     "id": "49",
@@ -781,13 +629,9 @@
     "category": "tap",
     "subCategory": "tapMusic",
     "startTime": 630,
-    "weekDays": [
-      2
-    ],
+    "weekDays": [2],
     "duration": 75,
-    "teacher": [
-      "ef"
-    ]
+    "teacher": ["ef"]
   },
   {
     "id": "50",
@@ -795,13 +639,9 @@
     "category": "tap",
     "subCategory": "tapSinging",
     "startTime": 735,
-    "weekDays": [
-      2
-    ],
+    "weekDays": [2],
     "duration": 75,
-    "teacher": [
-      "ef"
-    ]
+    "teacher": ["ef"]
   },
   {
     "id": "51",
@@ -809,13 +649,9 @@
     "category": "tap",
     "subCategory": "tapMusic",
     "startTime": 615,
-    "weekDays": [
-      4
-    ],
+    "weekDays": [4],
     "duration": 90,
-    "teacher": [
-      "ts"
-    ]
+    "teacher": ["ts"]
   },
   {
     "id": "52",
@@ -823,28 +659,20 @@
     "category": "tap",
     "subCategory": "tapMusic",
     "startTime": 735,
-    "weekDays": [
-      4
-    ],
+    "weekDays": [4],
     "duration": 90,
-    "teacher": [
-      "ts"
-    ]
+    "teacher": ["ts"]
   },
   {
     "id": "53",
     "title": "Infants principiants",
     "category": "tap",
     "subCategory": "",
-    "startTime": 1050,
-    "weekDays": [
-      5
-    ],
+    "startTime": 1750,
+    "weekDays": [5],
     "level": 10,
     "duration": 90,
-    "teacher": [
-      "il"
-    ]
+    "teacher": ["il"]
   },
   {
     "id": "54",
@@ -852,14 +680,10 @@
     "category": "tap",
     "subCategory": "tapKids",
     "startTime": 1050,
-    "weekDays": [
-      1
-    ],
+    "weekDays": [1],
     "level": 20,
     "duration": 60,
-    "teacher": [
-      "il"
-    ]
+    "teacher": ["il"]
   },
   {
     "id": "55",
@@ -867,14 +691,10 @@
     "category": "tap",
     "subCategory": "tapkids",
     "startTime": 1110,
-    "weekDays": [
-      1
-    ],
+    "weekDays": [1],
     "level": 20,
     "duration": 90,
-    "teacher": [
-      "il"
-    ]
+    "teacher": ["il"]
   },
   {
     "id": "56",
@@ -882,15 +702,11 @@
     "category": "tap",
     "subCategory": "tapkids",
     "startTime": 1050,
-    "weekDays": [
-      3
-    ],
+    "weekDays": [3],
     "level": 30,
     "duration": 90,
     "startsAt": "2023-09-12T22:00:00.000Z",
-    "teacher": [
-      "il"
-    ]
+    "teacher": ["il"]
   },
   {
     "id": "57",
@@ -898,9 +714,7 @@
     "category": "tap",
     "subCategory": "tapCompany",
     "startTime": 1200,
-    "weekDays": [
-      1
-    ],
+    "weekDays": [1],
     "duration": 120,
     "teacher": []
   }

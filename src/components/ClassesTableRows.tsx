@@ -43,7 +43,7 @@ const CourseNameWithTeacher = ({
   selected,
 }: CourseNameWithTeacherProps) => (
   <>
-    <p class={"mt-4 text-s" + selected ? "" : "text-gray-500"}>
+    <p class={"mt-4 text-s " + (selected ? "" : "text-gray-500")}>
       {course.teachers}
     </p>
   </>
@@ -55,7 +55,7 @@ const TimeCell = (props: {
   duration: number;
 }) => (
   <div class="flex flex-col">
-    <span class={"mt-4 text-s" + props.starttime ? "" : "text-gray-500"}>
+    <span class={"mt-4 text-s " + (props.starttime ? "" : "text-gray-500")}>
       <Time starttime={props.starttime} duration={props.duration} />
     </span>
     <Duration minutes={props.duration} />
@@ -222,8 +222,6 @@ export const ClassesTableRows = ({
   highlightTerms,
 }: TableProps) =>
   createSolidTable({
-    debugAll: true,
-
     get data() {
       return data();
     },
@@ -231,18 +229,9 @@ export const ClassesTableRows = ({
     enableFilters: true,
     enableRowSelection: true,
     enableColumnFilters: true,
-    // filterFns: () => ({
-    // type FilterFns = Record<string, (value: any, filterValue: any) => boolean>;
 
     filterFns: {
       level: (row, columnId, filterValue) => {
-        console.log(
-          "level filter",
-          row.original,
-          row.original[columnId],
-          filterValue
-        );
-
         return filterValue.length > 0
           ? filterValue.includes(row.original[columnId])
           : true;
@@ -270,16 +259,5 @@ export const ClassesTableRows = ({
 
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-
     getFilteredRowModel: getFilteredRowModel(),
-
-    // getPaginationRowModel: getPaginationRowModel(),
-    // getFacetedRowModel: getFacetedRowModel(),
-    // getFacetedUniqueValues: getFacetedUniqueValues(),
-    // getFacetedMinMaxValues: getFacetedMinMaxValues(),
-    // filterFns: {
-    //   category: (row, filterValue) =>
-    //     filterValue.includes(row.getValue().category),
-    // },
-    debugTable: true,
   });
