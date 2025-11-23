@@ -34,6 +34,16 @@ export interface Course {
 //   teachers: Teacher[];
 // }
 
+export interface Segmentation {
+  id: number;
+  classes_id: number;
+  starttime: number;
+  duration: number;
+  ocupacion: string;
+  weekday?: number;
+  sort?: number;
+}
+
 export interface Class {
   id: string;
   title?: string;
@@ -48,6 +58,7 @@ export interface Class {
   category: string;
   ocupacion?: string;
   teachers: string[];
+  segments?: Segmentation[]; // Room-switching segments
 }
 
 export interface Option {

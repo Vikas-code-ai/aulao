@@ -18,7 +18,7 @@ import { Category, Class, LocaleTypes, Teacher } from "~/types";
 import { ComboBox } from "~/components/ComboBox3";
 import { Icon } from "solid-heroicons";
 import { xCircle } from "solid-heroicons/solid";
-import { getCategories, getClasses, getTeachers } from "~/data/directus";
+import { getCategories, getClasses, getTeachers, getSegmentation } from "~/data/directus";
 import { useNavigate } from "@solidjs/router";
 
 type CourseCategories = {
@@ -46,16 +46,36 @@ export const routeData = () => {
   return createServerData$(async (_, event) => {
     const locale = "es";
 
-    const [classes, teachers, categories] = await Promise.all([
+    const [classes, teachers, categories, segmentation] = await Promise.all([
       getClasses() as Promise<Class[]>,
       getTeachers() as Promise<Teacher[]>,
       getCategories(locale) as Promise<Category[]>,
+      getSegmentation(),
     ]);
 
+    // Merge segmentation data with classes
+    const classesWithSegments = classes.map(cls => {
+      const segments = segmentation.filter((seg: any) =>
+        String(seg.classes_id) === cls.id
+      );
+
+      if (segments.length > 0) {
+        console.log(`✅ Class ${cls.id} (${cls.title}) has ${segments.length} segments:`, segments);
+        return { ...cls, segments };
+      }
+
+      return cls;
+    });
+
+    console.log("🔍 DEBUG: Classes with segments:",
+      classesWithSegments.filter(c => c.segments && c.segments.length > 0).length
+    );
+
     return {
-      classes,
+      classes: classesWithSegments,
       teachers,
       categories,
+      segmentation,
     };
   });
 };

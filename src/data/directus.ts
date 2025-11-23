@@ -11,12 +11,23 @@ import {
   Translations,
 } from "~/types";
 
+interface Segmentation {
+  id: number;
+  classes_id: number;
+  starttime: number;
+  duration: number;
+  ocupacion: string;
+  weekday?: number;
+  sort?: number;
+}
+
 interface Schema {
   categories: DbCategory[];
   levels: Level[];
   teachers: DbTeacher[];
   classes: Class[];
   classes_teachers: ClassTeacher[];
+  segmentation: Segmentation[];
 }
 
 interface ClassWithData {}
@@ -144,13 +155,25 @@ export const getTeachers = async (): Promise<Teacher[]> => {
 
 const getClassesTeacher = () => client.request(readItems("classes_teachers"));
 
+export const getSegmentation = async () => {
+  try {
+    const segments = await client.request(readItems("segmentation"));
+    console.log("🔍 DEBUG: Segmentation data fetched:", segments.length, "segments");
+    return segments;
+  } catch (error) {
+    console.log("⚠️ Segmentation table not found or error:", error.message);
+    return [];
+  }
+};
+
 export const getClasses: () => Promise<Class[]> = async () => {
   const classes = await client.request<Class[]>(
     readItems("classes", {
       fields: ["*", { teachers: [{ teachers_id: ["*"] }] }],
     })
   );
-  return classes.map((c) => ({
+
+  const mapped = classes.map((c) => ({
     id: String(c.id),
     title: c.title || undefined,
     starttime: c.starttime,
@@ -164,7 +187,40 @@ export const getClasses: () => Promise<Class[]> = async () => {
     ocupacion: c.ocupacion || undefined,
     teachers: c.teachers.map((t) => t.teachers_id.name),
   }));
+
+  // Debug: Find class 150 or popping
+  const class150 = mapped.find(c => c.id === "150");
+  const poppingClasses = mapped.filter(c =>
+    c.title?.toLowerCase().includes("pop") ||
+    c.category?.toLowerCase().includes("pop")
+  );
+
+  console.log("🔍 DEBUG: Total classes:", mapped.length);
+  if (class150) {
+    console.log("✅ DEBUG: Found class 150:", class150);
+  }
+  if (poppingClasses.length > 0) {
+    console.log("✅ DEBUG: Found popping classes:", poppingClasses);
+  }
+
+  return mapped;
 };
 
+// Fetch and log segmentation on module load
+getSegmentation().then(segments => {
+  if (segments.length > 0) {
+    console.log("🔍 DEBUG: Sample segmentation entries:");
+    segments.slice(0, 5).forEach(seg => {
+      console.log("  Segment:", seg);
+    });
+
+    // Look for segments related to class 150
+    const segments150 = segments.filter((s: any) => s.classes_id === 150 || s.classes_id === "150");
+    if (segments150.length > 0) {
+      console.log("✅ DEBUG: Segments for class 150:");
+      segments150.forEach(seg => console.log("  ", seg));
+    }
+  }
+});
+
 console.log(await getClasses());
-// console.log(await getCategories());
