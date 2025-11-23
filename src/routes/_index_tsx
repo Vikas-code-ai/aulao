@@ -7,7 +7,7 @@ import { Class, Course, Teacher } from "~/types";
 // import { makeData } from "~/utils/makeData";
 import { tapClasses } from "~/utils/someData";
 
-import { ComboBox } from "~/components/ComboBox3";
+import { ComboBox } from "~/components/ComboBox";
 import { Icon } from "solid-heroicons";
 import { xCircle } from "solid-heroicons/solid";
 import { getClasses, getTeachers } from "~/data/directus";
@@ -183,18 +183,19 @@ export default function Horarios() {
         <div class="flex flex-col gap-2">
           <ComboBox
             options={categories.map((o) => ({
+              id: o,
               label: tCategory(o),
-              value: o,
             }))}
             selected={selectedCategory}
             setSelected={setSelectedCategory}
             placeholder="Select a category"
+            useTranslation={true}
           />
 
           <ComboBox
             options={Object.keys(teachers).map((teacherKey) => ({
+              id: teacherKey,
               label: (teachers as any)[teacherKey] || teacherKey,
-              value: teacherKey,
             }))}
             selected={selectedTeacher}
             setSelected={setSelectedTeacher}
