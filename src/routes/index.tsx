@@ -15,7 +15,7 @@ import ClassesTable from "~/components/ClassesT";
 import { tCategory, tSubs } from "~/i18n/dict";
 import { Category, Class, LocaleTypes, Teacher } from "~/types";
 
-import { ComboBox } from "~/components/ComboBox3";
+import { ComboBox } from "~/components/ComboBox";
 import { Icon } from "solid-heroicons";
 import { xCircle } from "solid-heroicons/solid";
 import { getCategories, getClasses, getTeachers } from "~/data/directus";
